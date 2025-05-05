@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://ggsrbqey08ot"]
+
+[ext_resource type="Texture2D" uid="uid://dg0yvqhkb2d4j" path="res://Resources/Sprites/GroundBlood0.png" id="1_noprw"]
+[ext_resource type="Script" uid="uid://bpoemnxie03xe" path="res://Resources/ground_blood.gd" id="1_ykyb0"]
+[ext_resource type="Texture2D" uid="uid://bjsfinnesf01m" path="res://Resources/Sprites/GroundBlood1.png" id="3_5vflx"]
+[ext_resource type="Texture2D" uid="uid://csgi2rsuhf7pn" path="res://Resources/Sprites/GroundBlood2.png" id="4_re5n6"]
+[ext_resource type="Texture2D" uid="uid://coylmxyiv32t6" path="res://Resources/Sprites/GroundBlood_NotSpew 0.png" id="5_hsmgc"]
+[ext_resource type="Texture2D" uid="uid://c6boye4diy1c1" path="res://Resources/Sprites/GroundBlood_NotSpew 1.png" id="6_cv78l"]
+[ext_resource type="Texture2D" uid="uid://1cbjx23abnhm" path="res://Resources/Sprites/GroundBlood_NotSpew 2.png" id="7_thned"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x4p7u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_noprw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5vflx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_re5n6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o4fax"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_hsmgc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cv78l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_thned")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GroundBlood" type="Node2D" node_paths=PackedStringArray("spewBlood", "groundBlood", "bloodSplit", "fadedTimer")]
+script = ExtResource("1_ykyb0")
+spewBlood = NodePath("size/SpewBlood")
+groundBlood = NodePath("GroundBlood")
+bloodSplit = NodePath("BloodSplit")
+fadedTimer = NodePath("Timer")
+
+[node name="size" type="Node2D" parent="."]
+scale = Vector2(1.5, 1.5)
+
+[node name="SpewBlood" type="AnimatedSprite2D" parent="size"]
+scale = Vector2(0.6, 1)
+sprite_frames = SubResource("SpriteFrames_x4p7u")
+offset = Vector2(-25, 0)
+
+[node name="GroundBlood" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o4fax")
+
+[node name="BloodSplit" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

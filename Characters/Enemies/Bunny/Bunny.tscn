@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://bmxceyoo2hr3n"]
+
+[ext_resource type="Script" uid="uid://blrybr5h2wua7" path="res://Characters/Enemies/Bunny/bunny.gd" id="1_6ib53"]
+[ext_resource type="SpriteFrames" uid="uid://x3y7j27vvrfe" path="res://Characters/Enemies/Bunny/bunny.tres" id="1_ur487"]
+[ext_resource type="PackedScene" uid="uid://if6rfdgu583s" path="res://Characters/characterBasic.tscn" id="1_wjj4h"]
+[ext_resource type="Script" uid="uid://dvtco3duk2r44" path="res://Characters/characterState.gd" id="3_wf4nm"]
+
+[sub_resource type="Resource" id="Resource_v8ifv"]
+script = ExtResource("3_wf4nm")
+stateName = "intro"
+animation = "intro"
+nextState = "idle"
+requestRange = Vector2(0, 0)
+cantRandomTillEnd = true
+cantRandom = true
+compatibleStates = Array[String]([])
+metadata/_custom_type_script = "uid://dvtco3duk2r44"
+
+[sub_resource type="Resource" id="Resource_e3rfj"]
+script = ExtResource("3_wf4nm")
+stateName = "idle"
+animation = "default"
+nextState = "idle"
+requestRange = Vector2(0, 1)
+cantRandomTillEnd = false
+cantRandom = false
+compatibleStates = Array[String]([])
+metadata/_custom_type_script = "uid://dvtco3duk2r44"
+
+[sub_resource type="Resource" id="Resource_sei3a"]
+script = ExtResource("3_wf4nm")
+stateName = "run"
+animation = "run"
+nextState = "run"
+requestRange = Vector2(0, 0.3)
+cantRandomTillEnd = false
+cantRandom = false
+compatibleStates = Array[String]([])
+metadata/_custom_type_script = "uid://dvtco3duk2r44"
+
+[sub_resource type="Resource" id="Resource_wf4nm"]
+script = ExtResource("3_wf4nm")
+stateName = "attackReady"
+animation = "attackReady"
+nextState = "attack"
+requestRange = Vector2(0.3, 0.6)
+cantRandomTillEnd = true
+cantRandom = false
+compatibleStates = Array[String]([])
+metadata/_custom_type_script = "uid://dvtco3duk2r44"
+
+[sub_resource type="Resource" id="Resource_pjrq8"]
+resource_name = "attackReady"
+script = ExtResource("3_wf4nm")
+stateName = "attack"
+animation = "attack"
+nextState = "attack"
+requestRange = Vector2(0, 0)
+cantRandomTillEnd = false
+cantRandom = false
+compatibleStates = Array[String]([])
+metadata/_custom_type_script = "uid://dvtco3duk2r44"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wf4nm"]
+radius = 72.9931
+
+[node name="Bunny" instance=ExtResource("1_wjj4h")]
+script = ExtResource("1_6ib53")
+animalName = "白兔"
+states = Array[ExtResource("3_wf4nm")]([SubResource("Resource_v8ifv"), SubResource("Resource_e3rfj"), SubResource("Resource_sei3a"), SubResource("Resource_wf4nm"), SubResource("Resource_pjrq8")])
+
+[node name="MainSprite" parent="Sprites" index="0"]
+sprite_frames = ExtResource("1_ur487")
+animation = &"intro"
+frame_progress = 0.749701
+
+[node name="AttackArea" parent="AttackBox" index="1"]
+shape = SubResource("CircleShape2D_wf4nm")

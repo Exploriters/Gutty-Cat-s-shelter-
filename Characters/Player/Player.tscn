@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://hf8fub2rur5j"]
+
+[ext_resource type="Script" uid="uid://8y1xy5eblpm7" path="res://Characters/Player/player.gd" id="1_2xv0b"]
+[ext_resource type="SpriteFrames" uid="uid://f6ag67wnhnr5" path="res://Characters/Player/player.tres" id="2_6mep6"]
+[ext_resource type="AudioStream" uid="uid://w4dsse07kby2" path="res://Sounds/player_attack.wav" id="2_oc658"]
+[ext_resource type="AudioStream" uid="uid://dw1mbk1n3tnhd" path="res://Sounds/player_dash.wav" id="3_11ham"]
+[ext_resource type="AudioStream" uid="uid://qdyq1bhnb0oj" path="res://Sounds/player_died.wav" id="4_vpjpg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oc658"]
+size = Vector2(26, 15.5)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("MainSprite", "sprites", "soundAttack", "soundDash", "soundDied")]
+z_index = 2
+z_as_relative = false
+y_sort_enabled = true
+collision_layer = 2
+motion_mode = 1
+floor_stop_on_slope = false
+floor_block_on_wall = false
+script = ExtResource("1_2xv0b")
+MainSprite = NodePath("Sprites/MainSprite")
+sprites = NodePath("Sprites")
+soundAttack = NodePath("Sounds/PlayerAttack")
+soundDash = NodePath("Sounds/PlayerDash")
+soundDied = NodePath("Sounds/PlayerDied")
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="PlayerAttack" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("2_oc658")
+
+[node name="PlayerDash" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("3_11ham")
+
+[node name="PlayerDied" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("4_vpjpg")
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="MainSprite" type="AnimatedSprite2D" parent="Sprites"]
+sprite_frames = ExtResource("2_6mep6")
+animation = &"run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 18.75)
+shape = SubResource("RectangleShape2D_oc658")

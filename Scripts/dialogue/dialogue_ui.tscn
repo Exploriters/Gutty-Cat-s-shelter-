@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=3 uid="uid://ubfucphbhxdk"]
+
+[ext_resource type="Script" uid="uid://bxxd3c5bob1qs" path="res://Scripts/dialogue/dialogue_manager.gd" id="1_5uvc4"]
+[ext_resource type="Resource" uid="uid://beh021gvfgi3r" path="res://Scripts/dialogue/nullDialogue.tres" id="2_qaol6"]
+
+[node name="DialogueUI" type="Control" node_paths=PackedStringArray("characterNameText", "textBox", "audioPlayer")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5uvc4")
+characterNameText = NodePath("UImain/ColorRect/ColorRect3/name")
+textBox = NodePath("UImain/ColorRect2/content")
+audioPlayer = NodePath("AudioStreamPlayer2D")
+dialogueMain = ExtResource("2_qaol6")
+
+[node name="UImain" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -416.0
+offset_top = 170.0
+offset_right = 416.0
+offset_bottom = 316.0
+
+[node name="ColorRect2" type="ColorRect" parent="UImain"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 830.0
+offset_bottom = 144.0
+color = Color(0.151672, 0.156125, 0.164063, 1)
+
+[node name="content" type="Label" parent="UImain/ColorRect2"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 824.0
+offset_bottom = 138.0
+autowrap_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="UImain"]
+layout_mode = 0
+offset_left = 628.0
+offset_top = -42.0
+offset_right = 832.0
+
+[node name="ColorRect3" type="ColorRect" parent="UImain/ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 202.0
+offset_bottom = 42.0
+color = Color(0.151672, 0.156125, 0.164063, 1)
+
+[node name="name" type="Label" parent="UImain/ColorRect/ColorRect3"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 40.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="UImain"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 830.0
+offset_bottom = 144.0
+text = "———— 按下[E]继续 ————"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="introTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="disappearTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="timeout" from="introTimer" to="." method="_on_intro_timer_timeout"]
+[connection signal="timeout" from="disappearTimer" to="." method="_on_disappear_timer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

@@ -1,0 +1,132 @@
+[gd_scene load_steps=11 format=3 uid="uid://clsfcwb5ijcr6"]
+
+[ext_resource type="Texture2D" uid="uid://kwt6nkj2e3k4" path="res://Resources/Sprites/gut0.png" id="1_dxudp"]
+[ext_resource type="Script" uid="uid://bddnqlt7kwscx" path="res://Resources/gore_particle.gd" id="1_ic2cw"]
+[ext_resource type="Texture2D" uid="uid://cnthju4xlhyno" path="res://Resources/Sprites/gut1.png" id="2_ic2cw"]
+[ext_resource type="Texture2D" uid="uid://ws7pg1n1jos8" path="res://Resources/Sprites/gut2.png" id="3_ocgus"]
+[ext_resource type="Texture2D" uid="uid://cax4on61arrau" path="res://Resources/Sprites/gut3.png" id="4_ytf4g"]
+
+[sub_resource type="Curve" id="Curve_ic2cw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.515385, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_xh25o"]
+colors = PackedColorArray(0.856771, 0, 0.307902, 1, 0.196078, 0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_lv7ad"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_ocgus"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ytf4g"]
+offsets = PackedFloat32Array(0.259887, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.407843, 0, 0, 0)
+
+[node name="GPUParticles2D" type="CPUParticles2D" node_paths=PackedStringArray("b1", "b2", "b3", "b4", "b5")]
+z_index = 3
+emitting = false
+amount = 20
+one_shot = true
+speed_scale = 0.5
+explosiveness = 1.0
+local_coords = true
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 121.5
+initial_velocity_max = 186.92
+scale_amount_min = 2.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_ic2cw")
+color_ramp = SubResource("Gradient_xh25o")
+script = ExtResource("1_ic2cw")
+b1 = NodePath("GPUParticles2D")
+b2 = NodePath("GPUParticles2D2")
+b3 = NodePath("GPUParticles2D3")
+b4 = NodePath("GPUParticles2D4")
+b5 = NodePath("CPUParticles2D")
+
+[node name="GPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = 1
+emitting = false
+amount = 1
+texture = ExtResource("1_dxudp")
+one_shot = true
+speed_scale = 1.1
+explosiveness = 1.0
+local_coords = true
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 56.08
+initial_velocity_max = 56.08
+color_ramp = SubResource("Gradient_lv7ad")
+
+[node name="GPUParticles2D2" type="CPUParticles2D" parent="."]
+z_index = 1
+emitting = false
+amount = 3
+texture = ExtResource("2_ic2cw")
+one_shot = true
+speed_scale = 1.1
+explosiveness = 1.0
+local_coords = true
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 56.08
+initial_velocity_max = 56.08
+color_ramp = SubResource("Gradient_lv7ad")
+
+[node name="GPUParticles2D3" type="CPUParticles2D" parent="."]
+z_index = 1
+emitting = false
+amount = 3
+texture = ExtResource("3_ocgus")
+one_shot = true
+speed_scale = 1.1
+explosiveness = 1.0
+local_coords = true
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 56.08
+initial_velocity_max = 56.08
+color_ramp = SubResource("Gradient_lv7ad")
+
+[node name="GPUParticles2D4" type="CPUParticles2D" parent="."]
+z_index = 1
+emitting = false
+amount = 3
+texture = ExtResource("4_ytf4g")
+one_shot = true
+speed_scale = 1.1
+explosiveness = 1.0
+local_coords = true
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 56.08
+initial_velocity_max = 56.08
+color_ramp = SubResource("Gradient_lv7ad")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 30
+one_shot = true
+speed_scale = 0.5
+explosiveness = 1.0
+local_coords = true
+direction = Vector2(0, -1)
+spread = 15.0
+initial_velocity_min = 169.81
+initial_velocity_max = 207.55
+scale_amount_min = 0.5
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_ocgus")
+color_ramp = SubResource("Gradient_ytf4g")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

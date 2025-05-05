@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="DialogueGroup" load_steps=11 format=3 uid="uid://bewq62hwcg06b"]
+
+[ext_resource type="Script" uid="uid://6jpypaanjwaq" path="res://Scripts/dialogue/dialogue.gd" id="1_4843o"]
+[ext_resource type="AudioStream" uid="uid://be30nf57600ia" path="res://Characters/Ash/Sounds/ash_talk.wav" id="2_sbagu"]
+[ext_resource type="Script" uid="uid://duhudujni11a4" path="res://Scripts/dialogue/dialogueGroup.gd" id="3_sbagu"]
+
+[sub_resource type="Resource" id="Resource_eaj47"]
+script = ExtResource("1_4843o")
+characterName = "Ash"
+content = "嗨，Gutty，很高兴你也过来了这里。"
+sound = ExtResource("2_sbagu")
+metadata/_custom_type_script = "uid://6jpypaanjwaq"
+
+[sub_resource type="Resource" id="Resource_4843o"]
+script = ExtResource("1_4843o")
+characterName = "Ash"
+content = "这里还算安逸，你可以按下ESC退出对话去磨磨爪子，或者按E和我继续说说话。"
+sound = ExtResource("2_sbagu")
+metadata/_custom_type_script = "uid://6jpypaanjwaq"
+
+[sub_resource type="Resource" id="Resource_sbagu"]
+script = ExtResource("1_4843o")
+characterName = "Ash"
+content = "如果你忘了应该怎么去生存，请记住：按住移动键（WASD/方向键）移动，靠近敌人后点击敌人进行击杀。"
+sound = ExtResource("2_sbagu")
+metadata/_custom_type_script = "uid://6jpypaanjwaq"
+
+[sub_resource type="Resource" id="Resource_wykjp"]
+script = ExtResource("1_4843o")
+characterName = "Ash"
+content = "在击杀敌人后，它会给你短暂的无敌效果，无敌期间绝大多数敌人都无法对你造成伤害。"
+sound = ExtResource("2_sbagu")
+metadata/_custom_type_script = "uid://6jpypaanjwaq"
+
+[sub_resource type="Resource" id="Resource_i6ujq"]
+script = ExtResource("1_4843o")
+characterName = "Ash"
+content = "如果你需要加速或者主动获取无敌，同时按住移动键与空格，你可以向指定方向冲刺并获得短暂无敌。冲刺是有冷却的，所以在战时使用前请三思。"
+sound = ExtResource("2_sbagu")
+metadata/_custom_type_script = "uid://6jpypaanjwaq"
+
+[sub_resource type="Resource" id="Resource_ulcdc"]
+script = ExtResource("1_4843o")
+characterName = "Ash"
+content = "最后一点，也是最重要的，Gutty。永远别怜悯其他种族。"
+sound = ExtResource("2_sbagu")
+metadata/_custom_type_script = "uid://6jpypaanjwaq"
+
+[sub_resource type="Resource" id="Resource_tjwhf"]
+script = ExtResource("1_4843o")
+characterName = "Ash"
+content = "对了，你的目标就在下面。穿过那个狭窄的隧道就能找到他们。希望等你回来时我能看见你满身鲜血。"
+sound = ExtResource("2_sbagu")
+metadata/_custom_type_script = "uid://6jpypaanjwaq"
+
+[resource]
+script = ExtResource("3_sbagu")
+dialogueList = Array[ExtResource("1_4843o")]([SubResource("Resource_eaj47"), SubResource("Resource_4843o"), SubResource("Resource_sbagu"), SubResource("Resource_wykjp"), SubResource("Resource_i6ujq"), SubResource("Resource_ulcdc"), SubResource("Resource_tjwhf")])
+metadata/_custom_type_script = "uid://duhudujni11a4"

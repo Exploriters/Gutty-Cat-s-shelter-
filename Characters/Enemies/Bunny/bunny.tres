@@ -1,0 +1,158 @@
+[gd_resource type="SpriteFrames" load_steps=33 format=3 uid="uid://x3y7j27vvrfe"]
+
+[ext_resource type="Texture2D" uid="uid://d4fl5w3y0dv17" path="res://Characters/Enemies/Bunny/Sprites/bunny_attack0.png" id="1_82juc"]
+[ext_resource type="Texture2D" uid="uid://b2jjy3uhefhnd" path="res://Characters/Enemies/Bunny/Sprites/bunny_idle0.png" id="1_yt8f7"]
+[ext_resource type="Texture2D" uid="uid://dga1uy6lv4h1r" path="res://Characters/Enemies/Bunny/Sprites/bunny_attack1.png" id="2_8ci8d"]
+[ext_resource type="Texture2D" uid="uid://cctjgis5bvinx" path="res://Characters/Enemies/Bunny/Sprites/bunny_idle1.png" id="2_dj3yy"]
+[ext_resource type="Texture2D" uid="uid://bq0stgcjqu1dq" path="res://Characters/Enemies/Bunny/Sprites/bunny_idle2.png" id="3_rjpj0"]
+[ext_resource type="Texture2D" uid="uid://bj8u7rd00vs5v" path="res://Characters/Enemies/Bunny/Sprites/bunny_attack2.png" id="3_v0y8r"]
+[ext_resource type="Texture2D" uid="uid://mtnod547elwi" path="res://Characters/Enemies/Bunny/Sprites/bunny_attack3.png" id="4_3wyw2"]
+[ext_resource type="Texture2D" uid="uid://cxxi84bkaljyn" path="res://Characters/Enemies/Bunny/Sprites/bunny_idle3.png" id="4_wp8r0"]
+[ext_resource type="Texture2D" uid="uid://dqhk3jon71v64" path="res://Characters/Enemies/Bunny/Sprites/bunny_attack4.png" id="5_6udo6"]
+[ext_resource type="Texture2D" uid="uid://d0cpxgn7eajiu" path="res://Characters/Enemies/Bunny/Sprites/bunny_run0.png" id="5_7shhd"]
+[ext_resource type="Texture2D" uid="uid://b6hb8462nmqk1" path="res://Characters/Enemies/Bunny/Sprites/bunny_attack5.png" id="6_08v3y"]
+[ext_resource type="Texture2D" uid="uid://2fc7utus6gib" path="res://Characters/Enemies/Bunny/Sprites/bunny_run1.png" id="6_wu664"]
+[ext_resource type="Texture2D" uid="uid://w6bk2sin48u3" path="res://Characters/Enemies/Bunny/Sprites/bunny_readyAttack0.png" id="7_jc0ot"]
+[ext_resource type="Texture2D" uid="uid://2sybcoqlnlrg" path="res://Characters/Enemies/Bunny/Sprites/bunny_run2.png" id="7_vq7d5"]
+[ext_resource type="Texture2D" uid="uid://g6ng03ihqovn" path="res://Characters/Enemies/Bunny/Sprites/bunny_readyAttack1.png" id="8_o6odu"]
+[ext_resource type="Texture2D" uid="uid://bvqnxaxdxgcwl" path="res://Characters/Enemies/Bunny/Sprites/bunny_run3.png" id="8_ywxqi"]
+[ext_resource type="Texture2D" uid="uid://dq7yym4bvtpbo" path="res://Characters/Enemies/Bunny/Sprites/bunny_run4.png" id="9_1cygv"]
+[ext_resource type="Texture2D" uid="uid://c8dmf7o81wc6y" path="res://Characters/Enemies/Bunny/Sprites/bunny_readyAttack2.png" id="9_57hhb"]
+[ext_resource type="Texture2D" uid="uid://ddcd4dm7ee5aw" path="res://Characters/Enemies/Bunny/Sprites/bunny_readyAttack3.png" id="10_0v5rb"]
+[ext_resource type="Texture2D" uid="uid://gggub27uvhtm" path="res://Characters/Enemies/Bunny/Sprites/bunny_run5.png" id="10_uquwu"]
+[ext_resource type="Texture2D" uid="uid://kb05y1twqvs7" path="res://Characters/Enemies/Bunny/Sprites/bunny_readyAttack4.png" id="11_1wc3c"]
+[ext_resource type="Texture2D" uid="uid://cfge5mvdouwpn" path="res://Characters/Enemies/Bunny/Sprites/bunny_readyAttack5.png" id="12_3fp5n"]
+[ext_resource type="Texture2D" uid="uid://17h7smsfyqqg" path="res://Characters/Enemies/Bunny/Sprites/bunny_intro0.png" id="17_b1yx4"]
+[ext_resource type="Texture2D" uid="uid://64417xrj4fxl" path="res://Characters/Enemies/Bunny/Sprites/bunny_intro1.png" id="18_nu71a"]
+[ext_resource type="Texture2D" uid="uid://cuqtb86pky02v" path="res://Characters/Enemies/Bunny/Sprites/bunny_intro2.png" id="19_4ri2g"]
+[ext_resource type="Texture2D" uid="uid://4povgwu67epb" path="res://Characters/Enemies/Bunny/Sprites/bunny_intro3.png" id="20_f11or"]
+[ext_resource type="Texture2D" uid="uid://dbwx3rts56yj3" path="res://Characters/Enemies/Bunny/Sprites/bunny_intro4.png" id="21_hdd45"]
+[ext_resource type="Texture2D" uid="uid://dfkhmjb6tl5vb" path="res://Characters/Enemies/Bunny/Sprites/bunny_intro5.png" id="22_1j5x8"]
+[ext_resource type="Texture2D" uid="uid://vcxuravdgkw0" path="res://Characters/Enemies/Bunny/Sprites/bunny_intro6.png" id="23_2j8ci"]
+[ext_resource type="Texture2D" uid="uid://bc2x8n54o7ka0" path="res://Characters/Enemies/Bunny/Sprites/bunny_intro7.png" id="24_u1fk0"]
+[ext_resource type="Texture2D" uid="uid://cbbdcci8kln4h" path="res://Characters/Enemies/Bunny/Sprites/bunny_intro8.png" id="25_0wc6i"]
+[ext_resource type="Texture2D" uid="uid://yd42qhvrn5xf" path="res://Characters/Enemies/Bunny/Sprites/bunny_intro9.png" id="26_a2oq4"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("1_82juc")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_8ci8d")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_v0y8r")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_3wyw2")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_6udo6")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_08v3y")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("7_jc0ot")
+}, {
+"duration": 0.5,
+"texture": ExtResource("8_o6odu")
+}, {
+"duration": 0.5,
+"texture": ExtResource("9_57hhb")
+}, {
+"duration": 0.5,
+"texture": ExtResource("10_0v5rb")
+}, {
+"duration": 0.5,
+"texture": ExtResource("11_1wc3c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_3fp5n")
+}],
+"loop": true,
+"name": &"attackReady",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yt8f7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dj3yy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rjpj0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wp8r0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("17_b1yx4")
+}, {
+"duration": 0.5,
+"texture": ExtResource("18_nu71a")
+}, {
+"duration": 0.5,
+"texture": ExtResource("19_4ri2g")
+}, {
+"duration": 0.5,
+"texture": ExtResource("20_f11or")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_hdd45")
+}, {
+"duration": 0.5,
+"texture": ExtResource("22_1j5x8")
+}, {
+"duration": 0.5,
+"texture": ExtResource("23_2j8ci")
+}, {
+"duration": 0.5,
+"texture": ExtResource("24_u1fk0")
+}, {
+"duration": 0.5,
+"texture": ExtResource("25_0wc6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_a2oq4")
+}],
+"loop": true,
+"name": &"intro",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("5_7shhd")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_wu664")
+}, {
+"duration": 0.5,
+"texture": ExtResource("7_vq7d5")
+}, {
+"duration": 0.5,
+"texture": ExtResource("8_ywxqi")
+}, {
+"duration": 0.5,
+"texture": ExtResource("9_1cygv")
+}, {
+"duration": 0.5,
+"texture": ExtResource("10_uquwu")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]

@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://q7xk275tb40l"]
+
+[ext_resource type="Script" uid="uid://dhuspesq0r4ax" path="res://Scripts/camera/camera.gd" id="1_mmp84"]
+[ext_resource type="Texture2D" uid="uid://dt51ikxptv6s4" path="res://Resources/Sprites/errorScreen0.png" id="1_muv5j"]
+[ext_resource type="Texture2D" uid="uid://cpgw15ue0gfm2" path="res://Resources/Sprites/errorScreen1.png" id="2_mmp84"]
+[ext_resource type="Texture2D" uid="uid://drlgckioeaurj" path="res://Resources/Sprites/errorScreen2.png" id="3_kpfro"]
+[ext_resource type="Texture2D" uid="uid://bypqpcuvlqdfd" path="res://Resources/Sprites/errorScreen3.png" id="4_gnbf0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7sxnj"]
+animations = [{
+"frames": [{
+"duration": 0.25,
+"texture": ExtResource("1_muv5j")
+}, {
+"duration": 0.25,
+"texture": ExtResource("2_mmp84")
+}, {
+"duration": 0.25,
+"texture": ExtResource("3_kpfro")
+}, {
+"duration": 0.25,
+"texture": ExtResource("4_gnbf0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Camera2D" type="Camera2D"]
+z_index = 20
+script = ExtResource("1_mmp84")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -999
+z_as_relative = false
+offset_left = -584.0
+offset_top = -328.0
+offset_right = 576.0
+offset_bottom = 328.0
+color = Color(0, 0, 0, 1)
+
+[node name="Dialogues" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = -273.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "你好！欢迎来到古蒂猫的庇护所！
+当前仍是测试状态！"
+horizontal_alignment = 1
+
+[node name="FPS" type="Label" parent="."]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = -273.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "FPS:"
+
+[node name="kill" type="Label" parent="."]
+offset_left = -576.0
+offset_top = 273.0
+offset_right = 576.0
+offset_bottom = 324.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "..."
+vertical_alignment = 2
+
+[node name="Restarter" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Restarter"]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+color = Color(1, 0, 0, 1)
+
+[node name="restartScreenAnim" type="AnimatedSprite2D" parent="Restarter"]
+sprite_frames = SubResource("SpriteFrames_7sxnj")
+
+[node name="restartTimer" type="Timer" parent="Restarter"]
+one_shot = true
+
+[connection signal="timeout" from="Restarter/restartTimer" to="." method="_on_restart_timer_timeout"]

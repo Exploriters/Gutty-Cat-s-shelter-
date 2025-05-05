@@ -1,0 +1,33 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cvgxmui8vewjk"]
+
+[ext_resource type="Texture2D" uid="uid://blq2qw1evqyls" path="res://Tilemaps/props.png" id="1_2fhv7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ptjxt"]
+texture = ExtResource("1_2fhv7")
+texture_region_size = Vector2i(64, 64)
+0:2/size_in_atlas = Vector2i(2, 2)
+0:2/0 = 0
+0:2/0/texture_origin = Vector2i(8, 32)
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 8, 32, 8, 32, 16, -32, 16)
+2:0/size_in_atlas = Vector2i(2, 2)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(8, 32)
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 8, 32, 8, 32, 16, -32, 16)
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 32)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 8, 32, 8, 32, 16, -32, 16)
+4:0/animation_columns = 6
+4:0/animation_frame_0/duration = 1.0
+4:0/animation_frame_1/duration = 1.0
+4:0/animation_frame_2/duration = 1.0
+4:0/animation_frame_3/duration = 1.0
+4:0/animation_frame_4/duration = 1.0
+4:0/animation_frame_5/duration = 1.0
+4:0/0 = 0
+
+[resource]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
+sources/1 = SubResource("TileSetAtlasSource_ptjxt")

@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://7lj4asbqmjxi"]
+
+[ext_resource type="PackedScene" uid="uid://if6rfdgu583s" path="res://Characters/characterBasic.tscn" id="1_1w5x7"]
+[ext_resource type="Script" uid="uid://blrybr5h2wua7" path="res://Characters/Enemies/Bunny/bunny.gd" id="2_je0bj"]
+[ext_resource type="SpriteFrames" uid="uid://bpn0fnuosc30y" path="res://Characters/Enemies/Bunny_Black/BunnyBlack.tres" id="2_u5137"]
+[ext_resource type="Script" uid="uid://dvtco3duk2r44" path="res://Characters/characterState.gd" id="2_wt58t"]
+
+[sub_resource type="Resource" id="Resource_e3rfj"]
+script = ExtResource("2_wt58t")
+stateName = "idle"
+animation = "default"
+nextState = "idle"
+requestRange = Vector2(0, 1)
+cantRandomTillEnd = false
+cantRandom = false
+compatibleStates = Array[String]([])
+metadata/_custom_type_script = "uid://dvtco3duk2r44"
+
+[sub_resource type="Resource" id="Resource_wt58t"]
+script = ExtResource("2_wt58t")
+stateName = "attackReady"
+animation = "attackReady"
+nextState = "attack"
+requestRange = Vector2(0, 0.7)
+cantRandomTillEnd = true
+cantRandom = false
+compatibleStates = Array[String]([])
+metadata/_custom_type_script = "uid://dvtco3duk2r44"
+
+[sub_resource type="Resource" id="Resource_je0bj"]
+script = ExtResource("2_wt58t")
+stateName = "attack"
+animation = "attack"
+nextState = "attack"
+requestRange = Vector2(0, 0)
+cantRandomTillEnd = false
+cantRandom = true
+compatibleStates = Array[String](["attackReady"])
+metadata/_custom_type_script = "uid://dvtco3duk2r44"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wt58t"]
+radius = 141.718
+
+[node name="BunnyBlack" instance=ExtResource("1_1w5x7")]
+script = ExtResource("2_je0bj")
+animalName = "黑兔"
+killable = false
+moveSpeed = 320.0
+states = Array[ExtResource("2_wt58t")]([SubResource("Resource_e3rfj"), SubResource("Resource_wt58t"), SubResource("Resource_je0bj")])
+
+[node name="MainSprite" parent="Sprites" index="0"]
+sprite_frames = ExtResource("2_u5137")
+animation = &"attack"
+frame_progress = 0.127783
+
+[node name="AttackArea" parent="AttackBox" index="1"]
+shape = SubResource("CircleShape2D_wt58t")
+
+[node name="ThinkTimer" parent="." index="7"]
+wait_time = 1.0

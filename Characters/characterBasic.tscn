@@ -1,0 +1,127 @@
+[gd_scene load_steps=13 format=3 uid="uid://if6rfdgu583s"]
+
+[ext_resource type="Script" uid="uid://ddegeg2my30mu" path="res://Characters/characterBasic.gd" id="1_mlwwi"]
+[ext_resource type="Script" uid="uid://dvtco3duk2r44" path="res://Characters/characterState.gd" id="2_mlwwi"]
+[ext_resource type="Texture2D" uid="uid://k3et437uimtb" path="res://Resources/Sprites/circle.png" id="3_g0ie3"]
+[ext_resource type="Texture2D" uid="uid://4o8mhakchyoi" path="res://Resources/Sprites/targetIcon.png" id="3_t3yhu"]
+[ext_resource type="Texture2D" uid="uid://bwj2afmpfxqr" path="res://Characters/interactIcon.png" id="5_e3rfj"]
+[ext_resource type="Texture2D" uid="uid://bpgp67yydbkbh" path="res://Characters/warningIcon.png" id="6_14f5e"]
+
+[sub_resource type="Resource" id="Resource_e3rfj"]
+script = ExtResource("2_mlwwi")
+stateName = "idle"
+animation = "default"
+nextState = "idle"
+requestRange = Vector2(0, 1)
+cantRandomTillEnd = false
+cantRandom = false
+compatibleStates = Array[String]([])
+metadata/_custom_type_script = "uid://dvtco3duk2r44"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vyak1"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oc658"]
+size = Vector2(26, 15.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ib53"]
+radius = 158.114
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t3yhu"]
+radius = 200.36
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g0ie3"]
+radius = 43.9659
+
+[node name="BasicCharacter" type="CharacterBody2D"]
+z_index = 2
+z_as_relative = false
+y_sort_enabled = true
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_mlwwi")
+states = Array[ExtResource("2_mlwwi")]([SubResource("Resource_e3rfj")])
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="MainSprite" type="AnimatedSprite2D" parent="Sprites"]
+sprite_frames = SubResource("SpriteFrames_vyak1")
+animation = &"run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 18.75)
+shape = SubResource("RectangleShape2D_oc658")
+
+[node name="ClickBox" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 2
+
+[node name="ClickArea" type="CollisionShape2D" parent="ClickBox"]
+shape = SubResource("CircleShape2D_6ib53")
+debug_color = Color(0.132426, 0.463041, 0.736979, 0.42)
+
+[node name="HurtBox" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 2
+
+[node name="HurtArea" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_t3yhu")
+debug_color = Color(0.736979, 0.53861, 0.132426, 0.42)
+
+[node name="AttackBox" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 2
+
+[node name="circle" type="Sprite2D" parent="AttackBox"]
+modulate = Color(1, 0, 0, 0.196078)
+texture = ExtResource("3_g0ie3")
+
+[node name="AttackArea" type="CollisionShape2D" parent="AttackBox"]
+shape = SubResource("CircleShape2D_g0ie3")
+debug_color = Color(1, 0, 0, 0.42)
+
+[node name="TargetIcon" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_t3yhu")
+
+[node name="DyingTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="ThinkTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="InteractIcon" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(0, -50)
+texture = ExtResource("5_e3rfj")
+
+[node name="warningIcon" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(0, -50)
+texture = ExtResource("6_14f5e")
+
+[connection signal="frame_changed" from="Sprites/MainSprite" to="." method="_on_main_sprite_frame_changed"]
+[connection signal="timeout" from="ThinkTimer" to="." method="_on_think_timer_timeout"]

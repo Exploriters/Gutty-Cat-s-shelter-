@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://hk0pnyyxfven"]
+
+[ext_resource type="Script" uid="uid://drf7abqyab0mh" path="res://main_screen.gd" id="1_t8li8"]
+[ext_resource type="PackedScene" uid="uid://q7xk275tb40l" path="res://Scripts/camera/camera.tscn" id="2_5e8dw"]
+[ext_resource type="TileSet" uid="uid://bsow3cqgldd2j" path="res://Tilemaps/basic_tile.tres" id="3_yfcep"]
+[ext_resource type="TileSet" uid="uid://cvgxmui8vewjk" path="res://Tilemaps/props_tile.tres" id="4_04t6f"]
+[ext_resource type="PackedScene" uid="uid://bmdpgau4a7f3v" path="res://user_mouse.tscn" id="6_lbixo"]
+
+[node name="BasicMap" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_t8li8")
+
+[node name="screenShaker" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Camera2D" parent="." instance=ExtResource("2_5e8dw")]
+
+[node name="TileMaps" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Navigation" type="TileMapLayer" parent="TileMaps"]
+tile_set = ExtResource("3_yfcep")
+
+[node name="BuildingGround" type="TileMapLayer" parent="TileMaps"]
+tile_set = ExtResource("3_yfcep")
+
+[node name="Dirt" type="TileMapLayer" parent="TileMaps"]
+tile_set = ExtResource("3_yfcep")
+
+[node name="Grass" type="TileMapLayer" parent="TileMaps"]
+tile_set = ExtResource("3_yfcep")
+
+[node name="Snow" type="TileMapLayer" parent="TileMaps"]
+tile_set = ExtResource("3_yfcep")
+
+[node name="BuildingWall" type="TileMapLayer" parent="TileMaps"]
+tile_set = ExtResource("3_yfcep")
+
+[node name="Props" type="TileMapLayer" parent="TileMaps"]
+z_index = 2
+y_sort_enabled = true
+tile_set = ExtResource("4_04t6f")
+
+[node name="Moutain" type="TileMapLayer" parent="TileMaps"]
+tile_set = ExtResource("3_yfcep")
+
+[node name="arrows" type="Node2D" parent="TileMaps"]
+
+[node name="PlayerSpawnPoint" type="Marker2D" parent="."]
+
+[node name="EnterPoints" type="Node2D" parent="."]
+
+[node name="Gores" type="Node2D" parent="."]
+
+[node name="GroundBloods" type="Node2D" parent="Gores"]
+
+[node name="Guts" type="Node2D" parent="Gores"]
+
+[node name="Enemies" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="userMouse" parent="." instance=ExtResource("6_lbixo")]
